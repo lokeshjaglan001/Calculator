@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: roboto;
+        }
+        body{
+            background: linear-gradient(120deg,aquamarine,#234243);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        input,select,button{
+            margin: 3px;
+            padding: 10px;
+            background-color: aquamarine;
+            color: darkgreen;
+            border: 2px solid darkgreen;
+            width: 300px!important;
+            box-sizing: border-box;
+            border-radius: 7px;
+            font-size: 20px;
+        }
+        .card{
+            width: 400px;
+            height: 400px;
+            border: 3px solid darkgreen;
+            background-color: aquamarine;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+      
+        button{
+            margin: 20px;
+            font-weight: 900;
+            font-size: 30px;
+        }
+        button:hover{
+            background-color: darkgreen;
+            color: aquamarine;
+            transition: 0.2s;
+        }
+        button:not(:hover){
+            background-color: aquamarine;
+            color: darkgreen;
+            transition: 0.2s;
+        }
+        h1{
+            color: darkgreen;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Calculator</h1>
+        <select name="" id="operation">
+            <option value="addition">Addition</option>
+            <option value="substraction">Substraction</option>
+            <option value="multiplication">Multiplication</option>
+            <option value="division">Division</option>
+        </select><br>
+        <input type="number" id="num1"><br>
+        <input type="number" id="num2"><br>
+        <button id='btn'>GET RESULT</button>
+        <h1 id="result"></h1>
+    </div>
+</body>
+<script>
+    let btn = document.getElementById('btn');
+    btn.addEventListener('click',()=>{
+        let num1 = document.getElementById('num1').value;
+        let num2 = document.getElementById('num2').value;
+        let operation = document.getElementById('operation').value;
+        let result = 0;
+        if(operation == 'addition'){
+            result = parseInt(num1) + parseInt(num2);
+        }else if(operation == 'substraction'){
+            result = parseInt(num1) - parseInt(num2);
+        }else if(operation == 'multiplication'){
+            result = parseInt(num1) * parseInt(num2);
+        }else if(operation == 'division'){
+            result = parseInt(num1) / parseInt(num2);
+        }
+        document.getElementById("result").innerHTML = result;
+    })
+</script>
+</html>
